@@ -6,12 +6,12 @@ from keras.callbacks import TensorBoard
 import numpy
 
 dataset = numpy.loadtxt('train_transformed.csv', delimiter=',')
-X = dataset[:,2:5]
+X = dataset[:,2:7]
 Y = dataset[:,1]
 
 model = Sequential()
-model.add(Dense(7, input_dim=3, activation='relu'))
-model.add(Dense(6, activation='relu'))
+model.add(Dense(11, input_dim=5, activation='relu'))
+model.add(Dense(11, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
 history = model.fit(X,Y, epochs=1000, batch_size=500)

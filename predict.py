@@ -3,7 +3,7 @@ import pandas as pd
 import numpy
 
 dataset = numpy.loadtxt('test_transformed.csv', delimiter=',')
-X = dataset[:,1:5]
+X = dataset[:,1:7]
 
 model = load_model('model.hdf5')
 

@@ -9,7 +9,7 @@ def transform(source, target, train):
     d.loc[(d.Sex == 'female') & (d.Age.isna()) & (d.Name.str.contains('Ms.')),'Age'] = 35
     d.loc[(d.Sex == 'male') & (d.Age.isna()),'Age'] = 33
     ## drop some columns
-    columns = ['Sex','Age','Pclass']
+    columns = ['Sex','Age','Pclass','SibSp','Parch']
     if train:
         columns = ['Survived'] + columns
     columns = ['PassengerId'] + columns
