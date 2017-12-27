@@ -10,10 +10,11 @@ X = dataset[:,2:5]
 Y = dataset[:,1]
 
 model = Sequential()
-model.add(Dense(8, input_dim=3, activation='relu'))
+model.add(Dense(7, input_dim=3, activation='relu'))
+model.add(Dense(6, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
-history = model.fit(X,Y, epochs=50, batch_size=10)
+history = model.fit(X,Y, epochs=1000, batch_size=500)
 loss, accuracy = model.evaluate(X,Y)
 print(f"Loss. {loss}, Accuracy: {accuracy*100}")
 
