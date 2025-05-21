@@ -6,11 +6,14 @@ from keras.callbacks import TensorBoard
 import numpy
 
 dataset = numpy.loadtxt('train_transformed.csv', delimiter=',')
-X = dataset[:,2:7]
+# Y is the second column (index 1) which is 'Survived'
 Y = dataset[:,1]
+# X includes all columns from the third column (index 2) onwards
+X = dataset[:,2:]
 
 model = Sequential()
-model.add(Dense(11, input_dim=5, activation='relu'))
+# Update input_dim to reflect the new number of features in X
+model.add(Dense(11, input_dim=X.shape[1], activation='relu'))
 model.add(Dense(11, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
