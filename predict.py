@@ -3,7 +3,8 @@ import pandas as pd
 import numpy
 
 dataset = numpy.loadtxt('test_transformed.csv', delimiter=',')
-X = dataset[:,1:7]
+# X includes all columns from the second column (index 1) onwards, as PassengerId is column 0
+X = dataset[:,1:]
 
 model = load_model('model.hdf5')
 
